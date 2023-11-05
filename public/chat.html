@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <link rel="stylesheet" href="css/chat.css" />
+    <title>Chat App</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="left-container">
+        <div class="title">
+          <div class="room-title" id="room-title"></div>
+          <button id="logout">
+            <ion-icon name="log-out"></ion-icon>
+          </button>
+        </div>
+        <p>Coming soon</p>
+      </div>
+      <div class="right-container">
+        <!-- header -->
+
+        <div class="message-chat">
+          <div class="message-dashboard" id="message-dashboard"></div>
+          <div class="send-message">
+            <input type="text" id="input-message" placeholder="Enter.." />
+            <button id="btn-sent">
+              <ion-icon name="send-outline" id="sent-icon"></ion-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.6.0/qs.min.js"></script>
+    <script src="js/chat.js"></script>
+  </body>
+</html>
