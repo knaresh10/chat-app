@@ -214,10 +214,10 @@
     }
 
     .message-dashboard {
-        height: 75vh;
+        height: 85dvh;
     }
     .send-message {
-        height: 7vh;
+        height: 7dvh;
     }
 
     #btn-sent {
