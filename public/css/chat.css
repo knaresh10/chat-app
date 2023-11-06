@@ -212,4 +212,12 @@
     .right-container {
         width: 100%;
     }
+    .send-message {
+        height: 7vh;
+    }
+
+    #btn-sent {
+        width: 2.3rem;
+        height: 2.3rem;
+    }
 }
