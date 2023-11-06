@@ -212,6 +212,10 @@
     .right-container {
         width: 100%;
     }
+
+    .message-dashboard {
+        height: 75vh;
+    }
     .send-message {
         height: 7vh;
     }
