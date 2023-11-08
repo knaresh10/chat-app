@@ -18,15 +18,12 @@ document.documentElement.style.setProperty(
     `${window.visualViewport.innerHeight}px`
   );
 
-  if(virtualKeyboardSupported) {
-    navigator.virtualKeyboard.overlaysContent = true;
-  }
   message.addEventListener('focus', () => {
     if (virtualKeyboardSupported){
         navigator.virtualKeyboard.show();
       }
   })
-  
+
 window.visualViewport.addEventListener('resize', () => {
     document.documentElement.style.setProperty(
         "--100vh",
