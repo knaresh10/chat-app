@@ -2,6 +2,7 @@
     font-size: 14px;
     --primary-color: #41414f;
     --secondary-color: #f9dc5c;
+    --100vh: 100dvh;
 }
 * {
     padding: 0;
@@ -9,17 +10,24 @@
     font-family: 'Poppins', sans-serif;
 }
 
+
+html {
+    box-sizing: border-box;
+    height: var(--100vh, 100dvh);
+  }
+
 .container {
     width: 100vw;
-    height: 100vh;
+    height: 100dvh;
     display: flex;
     /* flex-direction: row; */
 }
 
+
 .left-container {
     box-sizing: border-box;
     width: 20vw;
-    height: 100vh;
+    height: 100%;
     background-color: var(--primary-color);
     display: flex;
     flex-direction: column;
@@ -85,14 +93,20 @@
 .message-dashboard {
     box-sizing: border-box;
     width: 100%;
-    height: 85vh;
+    height: 85%;
     padding: 10px;
     display: flex;
     flex-direction: column;
     overflow: auto;
     margin-bottom: 20px;
+    justify-content: flex-end;
 }
 
+.keyboard-active {
+    display: 0;
+    /* background-color: #f9dc5c;
+    height: 40%; */
+}
 .message-dashboard::-webkit-scrollbar {
     width: 0;
 }
@@ -145,7 +159,7 @@
     align-items: center;
     width: 98%;
     margin: 0 auto;
-    height: 10vh;
+    height: 10%;
     background-color: #41414f;
     /* margin: 0 10px 10px 10px; */
     border-radius: 10px;
@@ -187,41 +201,62 @@
     box-sizing: border-box;
 }
 
+#sent-icon {
+    font-size: 1.5em;
+}
+/* media queries */
 
-@media screen and (max-width: 768px) {
+/* mobile responsive */
+@media only screen and (min-width: 320px) and (max-width: 480px) {
     :root {
-        font-size: 12px
+        font-size: 12px;
     }
-}
-@media only screen and (min-width: 360px) and (max-width: 768px) {
+    .container {
+        height: 100dvh;
+        background-color: black;
+    }
 	.left-container {
         display: 0;
-        width: 0%;
+        border: none;
+        width: 0vh;
     }
 
     .right-container {
-        width: 100%;
-    }
-}
-@media only screen and (max-width: 360px) {
-	.left-container {
-        display: 0;
-        width: 0%;
+        width: 100vw;
+        height: 100dvh;
     }
 
-    .right-container {
+    .message-chat {
         width: 100%;
     }
 
     .message-dashboard {
-        height: 85dvh;
-    }
-    .send-message {
-        height: 7dvh;
+        height: 88%;
     }
 
-    #btn-sent {
-        width: 2.3rem;
-        height: 2.3rem;
+    .send-message {
+        height: 50px;
+        bottom: 10px;
     }
+
+    #btn-sent{
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+    #sent-icon {
+        font-size: 1em;
+    }
+}
+
+
+/* when keyboard is pop up */
+@media (height: visualViewport-height) {
+    .message-dashboard{
+        background-color: #f9dc5c;
+    }
+  }
+/* tablet responsive */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+	
 }

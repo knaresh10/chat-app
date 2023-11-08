@@ -1,5 +1,8 @@
+// import './util.js'
+
 const { userName, roomId} = Qs.parse(location.search, {ignoreQueryPrefix : true})
 
+const container = document.getElementById('container')
 const message = document.getElementById('input-message')
 const sentBtn = document.getElementById('btn-sent')
 const messageDashboard = document.getElementById('message-dashboard')
@@ -9,6 +12,26 @@ socket.emit('join', roomId)
 const roomTitle = document.getElementById('room-title')
 roomTitle.textContent = `${roomId}`
 
+const virtualKeyboardSupported = "virtualKeyboard" in navigator;
+document.documentElement.style.setProperty(
+    "--100vh",
+    `${window.visualViewport.innerHeight}px`
+  );
+
+  if(virtualKeyboardSupported) {
+    navigator.virtualKeyboard.overlaysContent = true;
+  }
+  message.addEventListener('focus', () => {
+    if (virtualKeyboardSupported){
+        navigator.virtualKeyboard.show();
+      }
+  })
+window.visualViewport.addEventListener('resize', () => {
+    document.documentElement.style.setProperty(
+        "--100vh",
+        `${window.visualViewport.innerHeight}px`
+      );
+})
 const createDiv = (divName, msg, userId) => {
     let mainDiv = document.createElement("div")
     mainDiv.className = divName
@@ -27,6 +50,15 @@ const createDiv = (divName, msg, userId) => {
     return mainDiv
 }
 
+window.visualViewport.addEventListener('resize', event => {
+    // alert(window.visualViewport.height + " " + window.innerHeight)
+    document.documentElement.style.setProperty(
+        "--100vh",
+        `${window.visualViewport.height}px`
+      );
+    //   alert(window.visualViewport.height + " " + window.innerHeight)
+});
+
 message.addEventListener("keyup", (event) => {
     if(event.key == "Enter") {
         sentBtn.click();
@@ -34,12 +66,14 @@ message.addEventListener("keyup", (event) => {
 })
 
 sentBtn.addEventListener('click', () => {
-    const msg = message.value 
+    const msg = message.value
+    if(msg === "")
     console.log(msg)
     messageDashboard.appendChild(createDiv("outgoing-message", msg, userName))
     messageDashboard.scrollTop = messageDashboard.scrollHeight;
     socket.emit('sendMessage', {userName, roomId, msg})
     message.value = ""
+    message.focus()
 })
 
 
