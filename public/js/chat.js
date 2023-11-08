@@ -26,6 +26,7 @@ document.documentElement.style.setProperty(
         navigator.virtualKeyboard.show();
       }
   })
+  
 window.visualViewport.addEventListener('resize', () => {
     document.documentElement.style.setProperty(
         "--100vh",
@@ -49,15 +50,6 @@ const createDiv = (divName, msg, userId) => {
     mainDiv.append(innerDiv);
     return mainDiv
 }
-
-window.visualViewport.addEventListener('resize', event => {
-    // alert(window.visualViewport.height + " " + window.innerHeight)
-    document.documentElement.style.setProperty(
-        "--100vh",
-        `${window.visualViewport.height}px`
-      );
-    //   alert(window.visualViewport.height + " " + window.innerHeight)
-});
 
 message.addEventListener("keyup", (event) => {
     if(event.key == "Enter") {
