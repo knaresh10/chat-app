@@ -1,5 +1,3 @@
-// import './util.js'
-
 const { userName, roomId} = Qs.parse(location.search, {ignoreQueryPrefix : true})
 
 const container = document.getElementById('container')
@@ -12,24 +10,6 @@ socket.emit('join', roomId)
 const roomTitle = document.getElementById('room-title')
 roomTitle.textContent = `${roomId}`
 
-const virtualKeyboardSupported = "virtualKeyboard" in navigator;
-document.documentElement.style.setProperty(
-    "--100vh",
-    `${window.visualViewport.innerHeight}px`
-  );
-
-  message.addEventListener('focus', () => {
-    if (virtualKeyboardSupported){
-        navigator.virtualKeyboard.show();
-      }
-  })
-
-window.visualViewport.addEventListener('resize', () => {
-    document.documentElement.style.setProperty(
-        "--100vh",
-        `${window.visualViewport.innerHeight}px`
-      );
-})
 const createDiv = (divName, msg, userId) => {
     let mainDiv = document.createElement("div")
     mainDiv.className = divName
@@ -65,18 +45,7 @@ sentBtn.addEventListener('click', () => {
     message.focus()
 })
 
-
-
-
-
-
 socket.on('message', (data) => {
     messageDashboard.appendChild(createDiv("incoming-message", data.msg, data.userName))
     messageDashboard.scrollTop = messageDashboard.scrollHeight;
 })
-
-
-
-const logoutBtn = document.getElementById('logout')
-
-logoutBtn.addEventListener('click')
