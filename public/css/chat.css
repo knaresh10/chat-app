@@ -99,7 +99,6 @@ html {
     flex-direction: column;
     overflow: auto;
     margin-bottom: 20px;
-    justify-content: flex-end;
 }
 
 .keyboard-active {
