@@ -147,11 +147,6 @@ html {
     background-color: #f9dc5c;
 }
 
-/* .outgoing-message {
-    width: 100%;
-    height: 10%;
-    background-color: rgb(44, 227, 227);
-} */
 
 .send-message {
     display: flex;
@@ -161,7 +156,6 @@ html {
     margin: 0 auto;
     height: 10%;
     background-color: #41414f;
-    /* margin: 0 10px 10px 10px; */
     border-radius: 10px;
 }
 
@@ -169,7 +163,6 @@ html {
 #input-message {
     box-sizing: border-box;
     width: 90%;
-    /* max-width: 85%; */
     height: 60%;
     border: none;
     outline: none;
@@ -184,8 +177,6 @@ html {
 #input-message::placeholder {
     color: #f9f3f3;
 }
-
-
 
 #btn-sent {
     display: flex;
@@ -249,13 +240,6 @@ html {
     }
 }
 
-
-/* when keyboard is pop up */
-@media (height: visualViewport-height) {
-    .message-dashboard{
-        background-color: #f9dc5c;
-    }
-  }
 /* tablet responsive */
 @media only screen and (min-width: 481px) and (max-width: 768px) {
 	
