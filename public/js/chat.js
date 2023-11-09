@@ -16,7 +16,7 @@ const createDiv = (divName, msg, userId) => {
     let innerDiv = document.createElement("div")
     innerDiv.className = "msg-content"
     let h1 = document.createElement("h1")
-    if(divName === "outgoing-message") h1.className = "incom"
+    if(divName === "outgoing-message") h1.className = "me"
     h1.setAttribute("id" , "small-user-id")
     h1.innerText = `${userId}`
     let paragraph = document.createElement("p");
